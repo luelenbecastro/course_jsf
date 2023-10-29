@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -15,6 +16,12 @@ public class Diaria implements Serializable {
 	@GeneratedValue
 	private int codigo;
 	private Date data;
+	
+	@ManyToMany
+	@JoinTable(name = "hopedagem", 
+				joinColumns = @JoinColumn(referencedColumnName = "cod_diaria"), 
+				inverseJoinColumns = @JoinColumn(name = "cod_pessoa"))
+	private Collection<PessoaFisica> hospedes;
 
 	public Diaria() {
 		super();
@@ -33,6 +40,14 @@ public class Diaria implements Serializable {
 
 	public void setData(Date data) {
 		this.data = data;
+	}
+
+	public Collection<PessoaFisica> getHospedes() {
+		return hospedes;
+	}
+
+	public void setHospedes(Collection<PessoaFisica> hospedes) {
+		this.hospedes = hospedes;
 	}
    
 }
