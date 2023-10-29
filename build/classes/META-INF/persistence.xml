@@ -9,5 +9,9 @@
 		<class>model.Endereco</class>
 		<class>model.Reserva</class>
 		<class>model.PessoaFisica</class>
+		<class>model.Diaria</class>
+		<class>model.DiariaReservada</class>
+		<class>model.DiariaAvulsa</class>
+		<class>model.Quarto</class>
 	</persistence-unit>
 </persistence>

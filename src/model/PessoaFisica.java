@@ -6,6 +6,7 @@ import java.util.Date;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
@@ -22,11 +23,8 @@ public class PessoaFisica extends Pessoa implements Serializable {
 	
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
-	
-	@ManyToMany(mappedBy = "hospedes")
-	private Collection<Diaria> diarias;
 
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private Sexo sexo;
 	
 	public PessoaFisica() {
@@ -52,13 +50,6 @@ public class PessoaFisica extends Pessoa implements Serializable {
 
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
-	}
-
-	public Collection<Diaria> getDiarias() {
-		return diarias;
-	}
-	public void setDiarias(Collection<Diaria> diarias) {
-		this.diarias = diarias;
 	}
 	
 	public Sexo getSexo() {

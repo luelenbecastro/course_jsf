@@ -22,6 +22,10 @@ public class Diaria implements Serializable {
 				joinColumns = @JoinColumn(referencedColumnName = "cod_diaria"), 
 				inverseJoinColumns = @JoinColumn(name = "cod_pessoa"))
 	private Collection<PessoaFisica> hospedes;
+	
+	@ManyToOne
+	@JoinColumn(name = "cod_quarto")
+	private Quarto quarto;
 
 	public Diaria() {
 		super();
@@ -48,6 +52,14 @@ public class Diaria implements Serializable {
 
 	public void setHospedes(Collection<PessoaFisica> hospedes) {
 		this.hospedes = hospedes;
+	}
+
+	public Quarto getQuarto() {
+		return quarto;
+	}
+
+	public void setQuarto(Quarto quarto) {
+		this.quarto = quarto;
 	}
    
 }
